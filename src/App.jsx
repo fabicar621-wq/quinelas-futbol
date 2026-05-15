@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { currentProgol } from './data/progolData';
 import { historyResults, getHistoricalStats } from './data/historyData';
+import { activeTickets } from './data/activeTickets';
 
 function App() {
   const [predictions, setPredictions] = useState({});
   const [stats, setStats] = useState({ L: 0, E: 0, V: 0 });
-  const [savedTickets, setSavedTickets] = useState([]);
+  const [savedTickets, setSavedTickets] = useState(activeTickets || []);
   const [lockedMatches, setLockedMatches] = useState({});
   const [activeTab, setActiveTab] = useState('predictor'); // 'predictor' | 'history'
   const [historicalStats, setHistoricalStats] = useState(null);
